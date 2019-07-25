@@ -1,0 +1,9 @@
+zone "bryan.com" {
+	type master;
+	file "/etc/named/zones/db.bryan.com"; # zone file path
+};
+
+zone "25.42.10.in-addr.arpa" {
+	type master;
+	file "/etc/named/zones/db.10.42.25.0";
+};

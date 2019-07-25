@@ -1,0 +1,17 @@
+$TTL	604800
+@	IN	SOA	bryan.com. root.bryan.com. (
+         	2019070706    	; Serial
+         	604800    	; Refresh
+          	86400    	; Retry
+        	2419200    	; Expire
+         	604800 )	; Negative Cache TTL
+;DNS
+@   	IN  	NS	dns1.bryan.com.  ; 10.42.25.166
+ 
+;WWW
+166  	IN  	PTR 	bryan.com. ; 10.42.25.166
+ 
+;Email
+150  	IN  	PTR 	mail1.bryan.com. ; 10.42.25.150
+ 
+100 	IN  	PTR   	hercules.bryan.com. ;  192.168.8.100
