@@ -9,5 +9,50 @@ El siguiente escenario es para extender una particion usando LVM
 ### Ejemplo
 
 ```powershell
-choco install microsoft-windows-terminal
+root@ubuntuLVM:~# fdisk /dev/sda
+
+Welcome to fdisk (util-linux 2.27.1).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+
+Command (m for help): p
+Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x86ef5cd6
+
+Device     Boot  Start      End  Sectors  Size Id Type
+/dev/sda1  *      2048   976895   974848  476M 83 Linux
+/dev/sda2       976896 28319743 27342848   13G 8e Linux LVM
+
+Command (m for help): n
+Partition type
+   p   primary (2 primary, 0 extended, 2 free)
+   e   extended (container for logical partitions)
+Select (default p): p
+Partition number (3,4, default 3): 3
+First sector (28319744-41943039, default 28319744):
+Last sector, +sectors or +size{K,M,G,T,P} (28319744-41943039, default 41943039): +1G
+
+Created a new partition 3 of type 'Linux' and of size 1 GiB.
+
+Command (m for help): p
+Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x86ef5cd6
+
+Device     Boot    Start      End  Sectors  Size Id Type
+/dev/sda1  *        2048   976895   974848  476M 83 Linux
+/dev/sda2         976896 28319743 27342848   13G 8e Linux LVM
+/dev/sda3       28319744 30416895  2097152    1G 83 Linux
+
+Command (m for help): w
+
+
 ```
