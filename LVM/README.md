@@ -75,7 +75,7 @@ Command (m for help): w
 
 ```
 
-**Para actualizar la tabla departiciones a nivel de OS **
+**Para actualizar la tabla departiciones a nivel de OS**
 
 ```
 root@ubuntuLVM:~#partprobe
