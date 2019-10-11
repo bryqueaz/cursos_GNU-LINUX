@@ -6,7 +6,7 @@ El siguiente escenario es para extender una particion usando LVM
 * Crear dos particiones primarias de un 1GB
     * Cada una de ella debe ser tipo LVM
 
-### Ejemplo
+### Ejemplo realizar este proceso dos veces
 
 ```powershell
 root@ubuntuLVM:~# fdisk /dev/sda
@@ -80,4 +80,24 @@ Command (m for help): w
 ```
 root@ubuntuLVM:~#partprobe
 ```
+### Paso #2
 
+/***
+<table class="tg">
+  <tr>
+    <th class="tg-yw4l"><b>Animals</b></th>
+    <th class="tg-yw4l"><b>Sports</b></th>
+    <th class="tg-yw4l"><b>Fruits</b></th>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Cat</td>
+    <td class="tg-yw4l">Soccer</td>
+    <td class="tg-yw4l">Apple</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Dog</td>
+    <td class="tg-yw4l">Basketball</td>
+    <td class="tg-yw4l">Orange</td>
+  </tr>
+</table>
+***/
