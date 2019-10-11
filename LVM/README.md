@@ -52,6 +52,25 @@ Device     Boot    Start      End  Sectors  Size Id Type
 /dev/sda2         976896 28319743 27342848   13G 8e Linux LVM
 /dev/sda3       28319744 30416895  2097152    1G 83 Linux
 
+Command (m for help): t
+Partition number (1-3, default 3): 3
+Partition type (type L to list all types): 8e
+Changed type of partition 'Linux' to 'Linux LVM'.
+
+Command (m for help): p
+
+Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x86ef5cd6
+
+Device     Boot    Start      End  Sectors  Size Id Type
+/dev/sda1  *        2048   976895   974848  476M 83 Linux
+/dev/sda2         976896 28319743 27342848   13G 8e Linux LVM
+/dev/sda3       28319744 30416895  2097152    1G 8e Linux LVM
+
 Command (m for help): w
 
 
