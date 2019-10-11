@@ -88,17 +88,17 @@ Se debe extender el volumen logico de lv_root y lv_var un 1G para cada uno
 
 ```
 root@ubuntuLVM:~# pvcreate /dev/sda5
-root@ubuntuLVM:~#pvcreate /dev/sda6
+root@ubuntuLVM:~# pvcreate /dev/sda6
 ```
 
 **Paso 2: Extender el volumen group greencore_vg**
 ```
-vgextend greencore_vg  /dev/sda5 /dev/sda6
+root@ubuntuLVM:~# vgextend greencore_vg  /dev/sda5 /dev/sda6
 ```
 **Paso 3: Extender lv_root y lv_var (Sin reiniciar el server)**
 ```
-root@ubuntuLVM:~#lvextend  /dev/greencore_vg/lv_root -L +1G -r (size)
-root@ubuntuLVM:~#lvextend  /dev/greencore_vg/lv_var -l +254 -r (extents)
+root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_root -L +1G -r (size)
+root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_var -l +254 -r (extents)
 ```
 
 
