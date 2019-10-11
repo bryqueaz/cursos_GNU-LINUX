@@ -73,5 +73,11 @@ Device     Boot    Start      End  Sectors  Size Id Type
 
 Command (m for help): w
 
+```
+
+Para actualizar la tabla departiciones a nivel de OS
 
 ```
+root@ubuntuLVM:~#partprobe
+```
+
