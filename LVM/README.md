@@ -123,7 +123,7 @@ lvcreate -n lv_data vg_greencore -l +100%FREE   (utiliza el porcentaje disponibl
 
 ```
 mkfs.xfs /dev/mapper/greencore_vg-backup
-mkfs.etx4 /dev/mapper/greencore_vg-backup
+mkfs.ext4 /dev/mapper/greencore_vg-backup   (ejemplo de como se realiza para ext4)
 ```
 ### Paso #3 - Crear la ruta donde va estar el punto de montaje
 ```
