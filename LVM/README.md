@@ -96,6 +96,10 @@ root@ubuntuLVM:~# pvcreate /dev/sda6
 root@ubuntuLVM:~# vgextend greencore_vg  /dev/sda5 /dev/sda6
 ```
 **Paso 3: Extender lv_root y lv_var (Sin reiniciar el server)**
+
+* -L (LogicalVolumeSize): Nos permite establecer el tamaño en unidades tales como M para megabytes, G para gigabytes, T para terabytes, P para petabytes y E para exabytes. Con el signo + el valor se agrega al tamaño real y sin él se toma el valor como absoluto
+* -r (Resize): Esta opción es muy importantes y es la que indica que se va a redimensionar el sistema de archivos al mismo tiempo, sin esta opción tendríamos que aplicar un paso extra con el comando resize2fs
+
 ```
 root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_root -L +1G -r (size)
 root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_var -l +254 -r (extents)
@@ -106,6 +110,10 @@ root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_var -l +100%FREE -r (utiliza el
 **Paso #1**
 
 Identificar cual LV se le va aplicar el reduce
+
+* -L (LogicalVolumeSize): Nos permite establecer el tamaño en unidades tales como M para megabytes, G para gigabytes, T para terabytes, P para petabytes y E para exabytes. Con el signo + el valor se agrega al tamaño real y sin él se toma el valor como absoluto
+* -r (Resize): Esta opción es muy importantes y es la que indica que se va a redimensionar el sistema de archivos al mismo tiempo, sin esta opción tendríamos que aplicar un paso extra con el comando resize2fs
+
 
 ```
  lvreduce /dev/vg_greencore/lv_backup -L 400M -r
