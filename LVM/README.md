@@ -105,6 +105,20 @@ root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_root -L +1G -r (size)
 root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_var -l +254 -r (extents opcion #2)
 root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_var -l +100%FREE -r (utiliza el porcentaje disponible libre del VG opcion #3 )
 ```
+### Como crear un LV
+
+* -n: Esta opción se utiliza para asignar el nombre del nuevo volumen lógico, (-n nombre).
+* Volumen de grupo: Indicar en cual volumen de grupo vamos a crear el volumen lógico.
+* -L (LogicalVolumeSize): Nos permite establecer el tamaño que vamos a asignar al volumen lógico en unidades tales como M para megabytes, G para gigabytes, T para terabytes, P para petabytes y E para exabytes
+* -l extends
+
+```
+lvcreate -n lv_backup -L  1G vg_greencore   (size)
+lvcreate -n lv_backup -l  255 vg_greencore   (extends)
+lvcreate -n lv_data vg_greencore -l +100%FREE   (utiliza el porcentaje disponible libre del VG)
+```
+
+
 ### Como reducir LVM usando EXT4
 
 **Paso #1**
