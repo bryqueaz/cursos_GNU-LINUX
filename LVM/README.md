@@ -1,6 +1,8 @@
 # LVM
 En este documento se explica como extender, crear y reducir volúmenes lógicos de una manera sencilla, mediante ejemplos para este tipo de tareas.
 
+## LVM -  Extender
+
 ### Paso #1
 
 * Crear dos particiones primarias o logicas de un 1GB
@@ -75,7 +77,7 @@ Command (m for help): w
 
 ```
 
-**Para actualizar la tabla departiciones a nivel de OS**
+**Para actualizar la tabla de particiones a nivel de OS**
 
 ```
 root@ubuntuLVM:~#partprobe
