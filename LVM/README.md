@@ -107,7 +107,7 @@ root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_root -L +1G -r (size)
 root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_var -l +254 -r (extents opcion #2)
 root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_var -l +100%FREE -r (utiliza el porcentaje disponible libre del VG opcion #3 )
 ```
-### Como crear un LV
+## Como crear un LV
 
 ### Paso #1 - Crear el LV
 
@@ -144,8 +144,7 @@ mount /dev/mapper/greencore_vg-backup /backup/
 
 ```
 
-
-### Como reducir LVM usando EXT4
+## Como reducir LVM usando EXT4
 
 **Paso #1**
 
@@ -159,7 +158,7 @@ Identificar cual LV se le va aplicar el reduce
  lvreduce /dev/vg_greencore/lv_backup -L 400M -r
 ```
 
-### Como reducir LVM usando XFS
+## Como reducir LVM usando XFS
 Es de ejemplo academico
 
 **Paso #1**
