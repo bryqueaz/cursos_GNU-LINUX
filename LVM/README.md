@@ -101,5 +101,102 @@ root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_root -L +1G -r (size)
 root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_var -l +254 -r (extents)
 root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_var -l +100%FREE -r (utiliza el porcentaje disponible libre del VG )
 ```
+### Como reducir LVM usando XFS
+Es de ejemplo academico
+
+**Paso #1**
+
+Hacer el dump del filesystem
+
+```
+xfsdump -l 0 -f /home/bryan/xfs_dump_lvm_data.image /dev/mapper/vg_greencore-lv_data 
+```
+**Paso #2**
+
+Desmontar la particion
+
+```
+umount /data
+```
+
+**Paso #3**
+
+Borrar el LV por ejemplo lv_data 
+
+```
+root@lvm:/# lvremove /dev/vg_greencore/lv_data 
+Do you really want to remove and DISCARD active logical volume lv_data? [y/n]: y
+  Logical volume "lv_data" successfully removed
+```
+**Paso #4**
+
+Volver a crear el LV con el tamaño más pequeño
+
+```
+root@lvm:/# lvcreate -n lv_data vg_greencore -L 200M
+WARNING: xfs signature detected on /dev/vg_greencore/lv_data at offset 0. Wipe it? [y/n]: y
+  Wiping xfs signature on /dev/vg_greencore/lv_data.
+  Logical volume "lv_data" created.
+```
+
+**Paso #5**
+
+Format de XFS al LV, ejemplo 
+
+```
+root@lvm:/#  mkfs.xfs /dev/mapper/vg_greencore-lv_data
+meta-data=/dev/mapper/vg_greencore-lv_data isize=512    agcount=4, agsize=12800 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=1, sparse=0
+data     =                       bsize=4096   blocks=51200, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+log      =internal log           bsize=4096   blocks=855, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+
+```
+
+**Paso #6**
+
+Montar el LV, revisamos que este con df -h
+
+```
+mount /dev/mapper/vg_greencore-lv_data /data/
+```
+
+**Paso #7**
+
+El ultimo paso la restauracion del dump hacia el punto de montaje /data
+```
+root@lvm:/# xfsrestore -f /home/bryan/xfs_dump_lvm_data.image /data/
+xfsrestore: using file dump (drive_simple) strategy
+xfsrestore: version 3.1.6 (dump format 3.0) - type ^C for status and control
+xfsrestore: searching media for dump
+xfsrestore: examining media file 0
+xfsrestore: dump description: 
+xfsrestore: hostname: lvm
+xfsrestore: mount point: /data
+xfsrestore: volume: /dev/mapper/vg_greencore-lv_data
+xfsrestore: session time: Mon Oct 14 21:35:52 2019
+xfsrestore: level: 0
+xfsrestore: session label: "dump"
+xfsrestore: media label: "dump"
+xfsrestore: file system id: 9e612ae1-f42b-41ee-b98d-4b8975e0e48a
+xfsrestore: session id: 3fbc16ca-fb55-4f1c-9370-1a19b6b9b0cf
+xfsrestore: media id: 761eac6a-c497-4589-804b-15c88340dec7
+xfsrestore: using online session inventory
+xfsrestore: searching media for directory dump
+xfsrestore: reading directories
+xfsrestore: 1 directories and 4 entries processed
+xfsrestore: directory post-processing
+xfsrestore: restoring non-directory files
+xfsrestore: restore complete: 0 seconds elapsed
+xfsrestore: Restore Summary:
+xfsrestore:   stream 0 /home/bryan/xfs_dump_lvm_data.image OK (success)
+xfsrestore: Restore Status: SUCCESS
+```
+
+
 
 
