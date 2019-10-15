@@ -1,5 +1,5 @@
 # LVM
-El siguiente escenario es para extender una particion usando LVM
+En este artículo expondremos como extender, crear y reducir volúmenes lógicos de una manera sencilla, mediante ejemplos y datos de comprobación útiles al realizar este tipo de tareas.
 
 ### Paso #1
 
