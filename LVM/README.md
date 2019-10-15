@@ -102,8 +102,8 @@ root@ubuntuLVM:~# vgextend greencore_vg  /dev/sda5 /dev/sda6
 
 ```
 root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_root -L +1G -r (size)
-root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_var -l +254 -r (extents)
-root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_var -l +100%FREE -r (utiliza el porcentaje disponible libre del VG )
+root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_var -l +254 -r (extents opcion #2)
+root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_var -l +100%FREE -r (utiliza el porcentaje disponible libre del VG opcion #3 )
 ```
 ### Como reducir LVM usando EXT4
 
