@@ -107,6 +107,8 @@ root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_var -l +100%FREE -r (utiliza el
 ```
 ### Como crear un LV
 
+### Paso #1 - Crear el LV
+
 * -n: Esta opción se utiliza para asignar el nombre del nuevo volumen lógico, (-n nombre).
 * Volumen de grupo: Indicar en cual volumen de grupo vamos a crear el volumen lógico.
 * -L (LogicalVolumeSize): Nos permite establecer el tamaño que vamos a asignar al volumen lógico en unidades tales como M para megabytes, G para gigabytes, T para terabytes, P para petabytes y E para exabytes
@@ -116,6 +118,28 @@ root@ubuntuLVM:~# lvextend  /dev/greencore_vg/lv_var -l +100%FREE -r (utiliza el
 lvcreate -n lv_backup -L  1G vg_greencore   (size)
 lvcreate -n lv_backup -l  255 vg_greencore   (extends)
 lvcreate -n lv_data vg_greencore -l +100%FREE   (utiliza el porcentaje disponible libre del VG)
+```
+### Paso #2 - Format ext4 o xfs
+
+```
+mkfs.xfs /dev/mapper/greencore_vg-backup
+mkfs.etx4 /dev/mapper/greencore_vg-backup
+```
+### Paso #3 - Crear la ruta donde va estar el punto de montaje
+```
+mkdir /backup
+```
+### Paso #4 - Realizar el punto de montaje manual
+```
+mount /dev/mapper/greencore_vg-backup /backup/ 
+```
+
+### Paso #5 - Manera persistente el siguiente reinicio, debe tener cuidado en este punto
+
+* Incluir al /etc/fstab
+```
+/dev/mapper/greencore_vg-backup  /backup xfs defaults 0 0
+
 ```
 
 
