@@ -1,5 +1,5 @@
 # LVM
-En este artículo expondremos como extender, crear y reducir volúmenes lógicos de una manera sencilla, mediante ejemplos y datos de comprobación útiles al realizar este tipo de tareas.
+En este documento se explica como extender, crear y reducir volúmenes lógicos de una manera sencilla, mediante ejemplos para este tipo de tareas.
 
 ### Paso #1
 
