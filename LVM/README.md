@@ -159,7 +159,10 @@ Identificar cual LV se le va aplicar el reduce
 ```
 
 ## Como reducir LVM usando XFS
-Es de ejemplo academico
+
+Es de ejemplo academico -- "workaround"
+
+En caso mayores si no queremos reinstalar el sistema operativo. Esto puede ser una receta debe tener espacio disponible:
 
 **Paso #1**
 
