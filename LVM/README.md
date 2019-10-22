@@ -260,6 +260,7 @@ xfsrestore: Restore Status: SUCCESS
 ## Extender Swap usando LVM
 
 **Paso #1** 
+
 Inicializar los PV, usando el disco /dev/sda o /dev/sdb o cualquier otro disco
 
 ```
@@ -268,6 +269,7 @@ root@lvm:~# pvcreate /dev/sdb3
 ```
 
 **Paso #2** 
+
 Extender el volume group  vg_greencore
 
 ```
@@ -276,6 +278,7 @@ root@lvm:~# vgextend vg_greencore /dev/sdb3
 ```
 
 **Paso #3**
+
 Extender el Volumen logico de swap se debe buscar cual o cuales Ejemplo lv_swap
 
 ```
@@ -288,6 +291,7 @@ fsadm: Filesystem "swap" on device "/dev/mapper/vg_greencore-lv_swap" is not sup
 ```
 
 **Paso #4**
+
 Para poder extender primero se debe liberar el swap
 Antes se puede revisar con el comando free -gh
 
@@ -305,6 +309,7 @@ swapoff /dev/mapper/vg_greencore-lv_swap
 ```
 
 **Paso #5**
+
 Se debe realizar el format tipo swap para que luego se pueda utilizar el nuevo espacio
 
 ```
@@ -313,6 +318,7 @@ mkswap: /dev/mapper/vg_greencore-lv_swap: warning: wiping old swap signature.
 ```
 
 **Paso #6**
+
 Levantar la particion de LVM con el nuevo espacio
 
 ```
