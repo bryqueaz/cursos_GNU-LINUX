@@ -257,6 +257,6 @@ xfsrestore:   stream 0 /home/bryan/xfs_dump_lvm_data.image OK (success)
 xfsrestore: Restore Status: SUCCESS
 ```
 
-
+## Extender Swap usando LVM
 
 
