@@ -150,7 +150,7 @@ mount /dev/mapper/greencore_vg-backup /backup/
 
 Identificar cual LV se le va aplicar el reduce
 
-* -L (LogicalVolumeSize): Nos permite establecer el tamaño en unidades tales como M para megabytes, G para gigabytes, T para terabytes, P para petabytes y E para exabytes. Con el signo + el valor se agrega al tamaño real y sin él se toma el valor como absoluto
+* -L (LogicalVolumeSize): Nos permite establecer el tamaño en unidades tales como M para megabytes, G para gigabytes, T para terabytes, P para petabytes y E para exabytes. Con el signo - el valor se  disminuye al tamaño real y sin él se toma el valor como absoluto
 * -r (Resize): Esta opción es muy importantes y es la que indica que se va a redimensionar el sistema de archivos al mismo tiempo, sin esta opción tendríamos que aplicar un paso extra con el comando resize2fs
 
 
