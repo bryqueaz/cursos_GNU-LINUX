@@ -1,7 +1,7 @@
 # LVM
 En este documento se explica como extender, crear y reducir volúmenes lógicos de una m
 
-Comandos Volúmenes Físicos (PV)
+**Comandos Volúmenes Físicos (PV)**
 
 **pvscan:** escanea todos los dispositivos para la búsqueda de volúmenes físicos.
 
@@ -11,7 +11,7 @@ Comandos Volúmenes Físicos (PV)
 
 **pvmove:** mover physical extends. Los distribuye en los demás volúmenes físicos.
 
-Comandos Grupo de Volúmenes (VG)
+**Comandos Grupo de Volúmenes (VG)**
 
 **vgscan:** escanea todos los dispositivos para la búsqueda de grupos de volúmenes.
 
@@ -25,7 +25,7 @@ Comandos Grupo de Volúmenes (VG)
 
 **vgchange:** cambia los atributos de un grupo de volúmenes.
 
-Comandos Volúmenes Lógicos (LV)
+**Comandos Volúmenes Lógicos (LV)**
 
 **lvscan:** escanea todos los dispositivos para la búsqueda de volúmenes lógicos.
 
