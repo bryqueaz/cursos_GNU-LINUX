@@ -259,4 +259,72 @@ xfsrestore: Restore Status: SUCCESS
 
 ## Extender Swap usando LVM
 
+**Paso #1** 
+Inicializar los PV, usando el disco /dev/sda o /dev/sdb o cualquier otro disco
+
+```
+root@lvm:~# pvcreate /dev/sdb3
+  Physical volume "/dev/sdb3" successfully created
+```
+
+**Paso #2** 
+Extender el volume group  vg_greencore
+
+```
+root@lvm:~# vgextend vg_greencore /dev/sdb3
+  Volume group "vg_greencore" successfully extended
+```
+
+**Paso #3**
+Extender el Volumen logico de swap se debe buscar cual o cuales Ejemplo lv_swap
+
+```
+root@lvm:~# lvextend /dev/vg_greencore/lv_swap -L +1G -r
+fsck from util-linux 2.27.1
+  Size of logical volume vg_greencore/lv_swap changed from 2.86 GiB (733 extents) to 3.86 GiB (989 extents).
+  Logical volume lv_swap successfully resized.
+fsadm: Filesystem "swap" on device "/dev/mapper/vg_greencore-lv_swap" is not supported by this tool
+  fsadm failed: 1
+```
+
+**Paso #4**
+Para poder extender primero se debe liberar el swap
+Antes se puede revisar con el comando free -gh
+
+```
+root@lvm:~# free -gh
+              total        used        free      shared  buff/cache   available
+Mem:           1.9G         63M        1.7G        3.2M        152M        1.7G
+Swap:          2.9G          0B        3.9G
+```
+
+Liberar el swap:
+
+```
+swapoff /dev/mapper/vg_greencore-lv_swap
+```
+
+**Paso #5**
+Se debe realizar el format tipo swap para que luego se pueda utilizar el nuevo espacio
+
+```
+root@lvm:~# mkswap /dev/mapper/vg_greencore-lv_swap 
+mkswap: /dev/mapper/vg_greencore-lv_swap: warning: wiping old swap signature.
+```
+
+**Paso #6**
+Levantar la particion de LVM con el nuevo espacio
+
+```
+swapon /dev/mapper/vg_greencore-lv_swap 
+```
+Por ultimo verificar que el espacio este disponible a nivel de OS
+
+```
+root@lvm:~# free -gh
+              total        used        free      shared  buff/cache   available
+Mem:           1.9G         60M        1.7G        3.2M        151M        1.7G
+Swap:          3.9G          0B        3.9G
+```
+
 
