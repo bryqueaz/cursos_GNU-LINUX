@@ -5,39 +5,39 @@ En este documento se explica como extender, crear y reducir volúmenes lógicos 
 
 * []() **pvscan:** escanea todos los dispositivos para la búsqueda de volúmenes físicos.
 
-**pvdisplay:** muestra atributos de un volumen físico.
+* []() **pvdisplay:** muestra atributos de un volumen físico.
 
-**pvcreate:** inicializa una partición o disco para ser usado por LVM.
+* []() **pvcreate:** inicializa una partición o disco para ser usado por LVM.
 
-**pvmove:** mover physical extends. Los distribuye en los demás volúmenes físicos.
+* []() **pvmove:** mover physical extends. Los distribuye en los demás volúmenes físicos.
 
 **Comandos Grupo de Volúmenes (VG)**
 
-**vgscan:** escanea todos los dispositivos para la búsqueda de grupos de volúmenes.
+* []() **vgscan:** escanea todos los dispositivos para la búsqueda de grupos de volúmenes.
 
-**vgdisplay:** muestra atributos de un grupo de volúmenes.
+* []() **vgdisplay:** muestra atributos de un grupo de volúmenes.
 
-**vgcreate:** crea un grupo de volúmenes.
+* []() **vgcreate:** crea un grupo de volúmenes.
 
-**vgextend:** agrega un volumen físico a un grupo de volúmenes.
+* []() **vgextend:** agrega un volumen físico a un grupo de volúmenes.
 
-**vgreduce:** reduce un grupo de volúmenes (remueve un volumen físico)
+* []() **vgreduce:** reduce un grupo de volúmenes (remueve un volumen físico)
 
-**vgchange:** cambia los atributos de un grupo de volúmenes.
+* []() **vgchange:** cambia los atributos de un grupo de volúmenes.
 
 **Comandos Volúmenes Lógicos (LV)**
 
-**lvscan:** escanea todos los dispositivos para la búsqueda de volúmenes lógicos.
+* []() **lvscan:** escanea todos los dispositivos para la búsqueda de volúmenes lógicos.
 
-**lvdisplay:** muestra atributos de un volumen lógico.
+* []() **lvdisplay:** muestra atributos de un volumen lógico.
 
-**lvcreate:** crea un volumen lógico en un grupo de volúmenes existente.
+* []() **lvcreate:** crea un volumen lógico en un grupo de volúmenes existente.
 
-**lvremove:** elimina un volumen lógico. Para realizar esta tarea el mismo no puede estar montado.
+* []() **lvremove:** elimina un volumen lógico. Para realizar esta tarea el mismo no puede estar montado.
 
-**lvreduce:** reduce el tamaño de un volumen lógico.
+* []() **lvreduce:** reduce el tamaño de un volumen lógico.
 
-**lvextend:** aumenta el tamaño de un volumen lógico.
+* []() **lvextend:** aumenta el tamaño de un volumen lógico.
 
 
 ## LVM -  Extender
