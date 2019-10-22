@@ -300,7 +300,7 @@ xfsrestore: Restore Status: SUCCESS
 
 **Paso #1** 
 
-Inicializar los PV, usando el disco /dev/sda o /dev/sdb o cualquier otro disco
+Inicializar los PV, usando el disco /dev/sda o /dev/sdb o cualquier otro disco, Importante antes se tuvo que haber realizado el particionamiento
 
 ```
 root@lvm:~# pvcreate /dev/sdb3
