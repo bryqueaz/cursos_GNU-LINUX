@@ -3,7 +3,7 @@ En este documento se explica como extender, crear y reducir volúmenes lógicos 
 
 **Comandos Volúmenes Físicos (PV)**
 
-**pvscan:** escanea todos los dispositivos para la búsqueda de volúmenes físicos.
+* []() **pvscan:** escanea todos los dispositivos para la búsqueda de volúmenes físicos.
 
 **pvdisplay:** muestra atributos de un volumen físico.
 
