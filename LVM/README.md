@@ -270,7 +270,7 @@ root@lvm:~# pvcreate /dev/sdb3
 
 **Paso #2** 
 
-Extender el volume group  vg_greencore
+Extender el volume group  vg_greencore con el PV creado anteriormente /dev/sdb3
 
 ```
 root@lvm:~# vgextend vg_greencore /dev/sdb3
