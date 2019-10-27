@@ -78,6 +78,15 @@ bryan@lvm:~$ ip maddress
 	inet6 ff02::1
 	inet6 ff01::1
 ```
+Permite listar la tabla arp del equipo la cual nos permite ubicar un equipo por su red comunicandonos por medio de la dirección MAC
 
+```
+bryan@lvm:~$ arp
+Address                  HWtype  HWaddress           Flags Mask            Iface
+192.168.8.85             ether   f6:43:36:b1:cc:4f   C                     enp0s3
+router                   ether   6c:3b:6b:f3:25:c9   C                     enp0s3
+192.168.8.16             ether   38:c9:86:37:32:47   C                     enp0s3
+
+```
 
 
