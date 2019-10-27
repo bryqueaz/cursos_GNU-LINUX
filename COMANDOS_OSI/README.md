@@ -58,7 +58,26 @@ Puntos a validar:
  
 ```
 
+## Comando de consulta - Capa de enlace de datos
 
+Los comandos para validar el estado del enlace logico por medio de la MAC de la NIC de red
+Permite listar la dirección MAC de todas las intrefaces de red: **ip maddress**
+
+```
+bryan@lvm:~$ ip maddress 
+1:	lo
+	inet  224.0.0.1
+	inet6 ff02::1
+	inet6 ff01::1
+2:	enp0s3
+	link  33:33:00:00:00:01
+	link  01:00:5e:00:00:01
+	link  33:33:ff:3b:7c:9b
+	inet  224.0.0.1
+	inet6 ff02::1:ff3b:7c9b
+	inet6 ff02::1
+	inet6 ff01::1
+```
 
 
 
