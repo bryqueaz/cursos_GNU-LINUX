@@ -49,3 +49,16 @@ Puntos a validar:
 * []() Speed: 1000Mb/s -> Velocidad de la interfaz
 * []() Duplex: Full   -> Tipo de enlace Full(transmision y recepción simultanea) Half(sin transmisión simultanea)
 * []() Link detected: yes -> Link detectado
+
+## Permite ubicar a nivel fisico la interfaz por que la pone a parpadear
+**ethtool -p {nombre interfaz}**
+
+```
+ ethtool -p enp3s0
+ 
+```
+
+
+
+
+
