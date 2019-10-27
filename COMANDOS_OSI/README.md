@@ -78,7 +78,7 @@ bryan@lvm:~$ ip maddress
 	inet6 ff02::1
 	inet6 ff01::1
 ```
-Permite listar la tabla arp del equipo la cual nos permite ubicar un equipo por su red comunicandonos por medio de la dirección MAC
+Permite listar la tabla arp del equipo la cual nos permite ubicar un equipo por su red comunicandonos por medio de la dirección MAC: **arp**
 
 ```
 bryan@lvm:~$ arp
@@ -89,6 +89,51 @@ router                   ether   6c:3b:6b:f3:25:c9   C                     enp0s
 
 ```
 ## Comando de consulta - Capa de red ( Capa 3) 
+
+Los comandos para validar el estado y el direcionamineto de los enlaces de red
+
+Permite listar la dirección MAC de todas las intrefaces de red: **ip address show**
+
+```
+bryan@lvm:~$ ip add show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:3b:7c:9b brd ff:ff:ff:ff:ff:ff
+    inet 192.168.8.12/24 brd 192.168.8.255 scope global enp0s3
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe3b:7c9b/64 scope link 
+       valid_lft forever preferred_lft forever
+
+```
+
+Permite conocer nuestra puerta de enlace: **netstat -rn**
+
+```
+bryan@lvm:~$ netstat -rn
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+0.0.0.0         192.168.8.1     0.0.0.0         UG        0 0          0 enp0s3
+192.168.8.0     0.0.0.0         255.255.255.0   U         0 0          0 enp0s3
+
+```
+
+Permite listar todas las redes conectadas y la puerta de enlace: **ip route show**
+
+```
+bryan@lvm:~$ ip route show
+default via 192.168.8.1 dev enp0s3 
+192.168.8.0/24 dev enp0s3  proto kernel  scope link  src 192.168.8.12 
+
+```
+
+
+
+
 
 
 
