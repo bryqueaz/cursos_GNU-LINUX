@@ -135,7 +135,7 @@ default via 192.168.8.1 dev enp0s3
 
 Los comandos para validar el estado y el direcionamineto de los enlaces de capa de transporte
 
-Permite listar puertos utilizados en nuestro equipo, tanto de entrada como de salida: **netstat -anp**
+Permite listar puertos utilizados en nuestro equipo, tanto de **entrada** como de **salida**: **netstat -anp**
 
 
 * []() **-a** --> muestra todas los socket conectados
@@ -159,8 +159,33 @@ tcp6       0      0 ::1:631                 :::*                    LISTEN      
 
 ```
 
+Permite listar puertos de red que estan escuchando trafico en nuestro equipo: **netstat -pltu**
+
+* []() **-a** -->  muestra todas los socket conectados
+* []() **-p** -->  muestra el PID y el nombre del programa
+* []() **-l** -->  muestra los sockets que escuchan el servers
+* []() **-t** -->  muestra las conexiones TCP
+* []() **-u** -->  muestra las conexiones UDP
+
+```
+root@kal-kvm:~# netstat -apltu  
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 kal-kvm:domain          *:*                     LISTEN      2078/dnsmasq    
+tcp        0      0 *:ssh                   *:*                     LISTEN      1238/sshd       
+tcp        0      0 localhost:3350          *:*                     LISTEN      1284/xrdp-sesman
+tcp        0      0 localhost:ipp           *:*                     LISTEN      3631/cupsd      
+tcp        0      0 kal-kvm:42427           *:*                     LISTEN      8490/dleyna-rendere
+tcp        0      0 *:3389                  *:*                     LISTEN      1267/xrdp       
+tcp        0      0 localhost:18083         *:*                     LISTEN      1322/vboxwebsrv 
+tcp        0      0 kal-kvm:35306           192.168.8.11:7676       TIME_WAIT   -               
+tcp        0    188 kal-kvm:ssh             192.168.8.16:62073      ESTABLISHED 8596/sshd: bryan [p
+tcp6       0      0 [::]:ssh                [::]:*                  LISTEN      1238/sshd       
+tcp6       0      0 ip6-localhost:ipp       [::]:*                  LISTEN      3631/cupsd 
+```
 
 
+ 
 
 
 
