@@ -1,5 +1,5 @@
 # LVM
-En este documento se explica como extender, crear y reducir volúmenes lógicos de una m
+En este documento se explica como extender, crear y reducir volúmenes lógicos de una manera simple
 
 **Comandos Volúmenes Físicos (PV)**
 
