@@ -12,3 +12,40 @@ bryan@lvm:~$ ip link show
     link/ether 08:00:27:3b:7c:9b brd ff:ff:ff:ff:ff:ff
 
 ```
+
+## Permite ver estado de la negociacion de capa fisica
+
+Se describe los puntos más importante para ver el estado usando el comando: **ethtool enp0s3**
+```
+bryan@lvm:~$ ethtool enp0s3
+Settings for enp0s3:
+	Supported ports: [ TP ]
+	Supported link modes:   10baseT/Half 10baseT/Full 
+	                        100baseT/Half 100baseT/Full 
+	                        1000baseT/Full 
+	Supported pause frame use: No
+	Supports auto-negotiation: Yes
+	Advertised link modes:  10baseT/Half 10baseT/Full 
+	                        100baseT/Half 100baseT/Full 
+	                        1000baseT/Full 
+	Advertised pause frame use: No
+	Advertised auto-negotiation: Yes
+	Speed: 1000Mb/s
+	Duplex: Full
+	Port: Twisted Pair
+	PHYAD: 0
+	Transceiver: internal
+	Auto-negotiation: on
+	MDI-X: off (auto)
+Cannot get wake-on-lan settings: Operation not permitted
+	Current message level: 0x00000007 (7)
+			       drv probe link
+	Link detected: yes
+
+```
+Puntos a validar:
+
+* []() Supports auto-negotiation: Yes  -> Tipo de negociación con el otro dispositivo de red
+* []() Speed: 1000Mb/s -> Velocidad de la interfaz
+* []() Duplex: Full   -> Tipo de enlace Full(transmision y recepción simultanea) Half(sin transmisión simultanea)
+* []() Link detected: yes -> Link detectado
