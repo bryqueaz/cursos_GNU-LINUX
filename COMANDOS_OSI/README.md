@@ -131,6 +131,34 @@ default via 192.168.8.1 dev enp0s3
 
 ```
 
+## Comando de consulta - Capa de transporte ( Capa 4) 
+
+Los comandos para validar el estado y el direcionamineto de los enlaces de capa de transporte
+
+Permite listar puertos utilizados en nuestro equipo, tanto de entrada como de salida: **netstat -anp**
+
+
+* []() **-a** --> muestra todas los socket conectados
+* []() **-n** --> no resuelve
+* []() **-p** -->  muestra el PID y el nombre del programa
+
+```
+root@kal-kvm:~# netstat -anp 
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 192.168.122.1:53        0.0.0.0:*               LISTEN      2078/dnsmasq    
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1238/sshd       
+tcp        0      0 127.0.0.1:3350          0.0.0.0:*               LISTEN      1284/xrdp-sesman
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      3631/cupsd      
+tcp        0      0 192.168.8.85:42427      0.0.0.0:*               LISTEN      8490/dleyna-rendere
+tcp        0      0 0.0.0.0:3389            0.0.0.0:*               LISTEN      1267/xrdp       
+tcp        0      0 127.0.0.1:18083         0.0.0.0:*               LISTEN      1322/vboxwebsrv 
+tcp        0      0 192.168.8.85:22         192.168.8.16:62073      ESTABLISHED 8596/sshd: bryan [p
+tcp6       0      0 :::22                   :::*                    LISTEN      1238/sshd       
+tcp6       0      0 ::1:631                 :::*                    LISTEN      3631/cupsd      
+
+```
+
 
 
 
