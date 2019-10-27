@@ -1,6 +1,6 @@
 # Consulta de información de red en GNU/Linux
 
-## Comando de consulta - Capa física
+## Comando de consulta - Capa física ( Capa 1) 
 
 Los comandos para validar el estado del enlace fisico: **ip link show**.
 Importante mencionar que si tiene la Interfaz de red conectada al servidor debe teber un estado **state UP**
@@ -13,7 +13,7 @@ bryan@lvm:~$ ip link show
 
 ```
 
-## Permite ver estado de la negociacion de capa fisica
+Permite ver estado de la negociacion de capa fisica 
 
 Se describe los puntos más importante para ver el estado usando el comando: **ethtool enp0s3**
 ```
@@ -50,7 +50,7 @@ Puntos a validar:
 * []() Duplex: Full   -> Tipo de enlace Full(transmision y recepción simultanea) Half(sin transmisión simultanea)
 * []() Link detected: yes -> Link detectado
 
-## Permite ubicar a nivel fisico la interfaz por que la pone a parpadear
+Permite ubicar a nivel fisico la interfaz por que la pone a parpadear
 **ethtool -p {nombre interfaz}**
 
 ```
@@ -58,7 +58,7 @@ Puntos a validar:
  
 ```
 
-## Comando de consulta - Capa de enlace de datos
+## Comando de consulta - Capa de enlace de datos ( Capa 2) 
 
 Los comandos para validar el estado del enlace logico por medio de la MAC de la NIC de red
 Permite listar la dirección MAC de todas las intrefaces de red: **ip maddress**
@@ -88,5 +88,7 @@ router                   ether   6c:3b:6b:f3:25:c9   C                     enp0s
 192.168.8.16             ether   38:c9:86:37:32:47   C                     enp0s3
 
 ```
+## Comando de consulta - Capa de red ( Capa 3) 
+
 
 
