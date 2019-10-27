@@ -2,7 +2,7 @@
 
 ## Comando de consulta - Capa física
 
-Los comandos para validar el estado del enlace fisico: ip link show
+Los comandos para validar el estado del enlace fisico: **ip link show**
 ```
 bryan@lvm:~$ ip link show
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1
