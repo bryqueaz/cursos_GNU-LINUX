@@ -1,0 +1,1 @@
+# Consulta de información de red en GNU/Linux
