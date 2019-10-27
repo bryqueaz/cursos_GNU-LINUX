@@ -184,8 +184,51 @@ tcp6       0      0 [::]:ssh                [::]:*                  LISTEN      
 tcp6       0      0 ip6-localhost:ipp       [::]:*                  LISTEN      3631/cupsd 
 ```
 
+# Permite hacer calculos de red.
 
- 
+Con la siguiente herramienta nos permite calcular la red: 
+
+* []() **Debian/Ubuntu** -> apt-get install ipcalc
+* []() **CentOS/RHEL**   -> yum install ipcalc
+
+Ejemplo Class C
+
+* []() ipcalc 192.168.8.19/24
+* []() ipcalc 192.168.8.19
+
+
+```
+bryan@lvm:~$ ipcalc 192.168.8.19/24
+
+Address:   192.168.8.19         11000000.10101000.00001000. 00010011
+Netmask:   255.255.255.0 = 24   11111111.11111111.11111111. 00000000
+Wildcard:  0.0.0.255            00000000.00000000.00000000. 11111111
+=>
+Network:   192.168.8.0/24       11000000.10101000.00001000. 00000000
+HostMin:   192.168.8.1          11000000.10101000.00001000. 00000001
+HostMax:   192.168.8.254        11000000.10101000.00001000. 11111110
+Broadcast: 192.168.8.255        11000000.10101000.00001000. 11111111
+Hosts/Net: 254                   Class C, Private Internet
+
+```
+Ejemplo Class A
+
+```
+bryan@lvm:~$ ipcalc 10.122.3.116
+
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+Address:   10.122.3.116         00001010.01111010.00000011. 01110100
+Netmask:   255.255.255.0 = 24   11111111.11111111.11111111. 00000000
+Wildcard:  0.0.0.255            00000000.00000000.00000000. 11111111
+=>
+Network:   10.122.3.0/24        00001010.01111010.00000011. 00000000
+HostMin:   10.122.3.1           00001010.01111010.00000011. 00000001
+HostMax:   10.122.3.254         00001010.01111010.00000011. 11111110
+Broadcast: 10.122.3.255         00001010.01111010.00000011. 11111111
+Hosts/Net: 254                   Class A, Private Internet
+
+```
+
 
 
 
