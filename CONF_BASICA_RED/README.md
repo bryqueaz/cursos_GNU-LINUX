@@ -20,3 +20,43 @@ gateway 192.168.10.24
 dns-nameservers 8.8.8.8 4.4.4.4
 
 ```
+## Verificar si esta activo networking
+
+```
+root@kal:~# systemctl status network-manager.service // si usa network manager
+
+● NetworkManager.service - Network Manager
+   Loaded: loaded (/lib/systemd/system/NetworkManager.service; enabled; vendor preset: enabled)
+   Active: active (running) since Sun 2019-02-17 18:24:50 CST; 8s ago
+     Docs: man:NetworkManager(8)
+ Main PID: 8638 (NetworkManager)
+   CGroup: /system.slice/NetworkManager.service
+           └─8638 /usr/sbin/NetworkManager --no-daemon
+
+```
+## Para generar un nuevo request de DHCP
+
+```
+dhclient -r  enp0s3
+dhclient enp0s3
+
+```
+## Para instalar network-manager y habilitar 
+
+* []() apt-get install network-manager
+* []() systemctl status network-manager.service
+* []() systemctl start network-manager.service // inicia el servicio
+* []() systemctl enable network-manager.service // habilitar después de un reinicio
+
+## Deshabilitar network
+
+* []() systemctl status networking.service
+* []() systemctl stop networking.service
+* []() systemctl disable networking.service
+* []() systemctl mask networking.service // mask el servicio 
+
+
+
+
+
+
