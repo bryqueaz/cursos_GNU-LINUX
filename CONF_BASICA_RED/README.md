@@ -75,11 +75,25 @@ Crear la conexión manual
 * []() ipv4.gateway =  gateway
 * []() ipv4.dns  
 
-## crear la conexion estatica
+## Crear la conexion estatica
 
 ```
 root@kal:~# nmcli connection add con-name static autoconnect yes ifname enp0s3 type ethernet -- ipv4.method manual ipv4.addresses 192.168.8.216/24 ipv4.gateway 192.168.8.1 ipv4.dns 8.8.8.8
 
+```
+
+## Habilitar el control de la interfaces con NetworkManager
+
+```
+root@kal:~# nmcli networking on
+
+```
+
+## Luego levantar las interfaces
+
+```
+nmcli connection down static
+nmcli connection up static
 ```
 
 
