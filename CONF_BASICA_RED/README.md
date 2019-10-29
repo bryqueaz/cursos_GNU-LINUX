@@ -55,6 +55,35 @@ dhclient enp0s3
 * []() systemctl disable networking.service
 * []() systemctl mask networking.service // mask el servicio 
 
+## Comentar las lineas /etc/network/interfaces
+
+* []() #auto lo
+* []() #iface lo inet loopback
+* []() ##auto enp0s3
+* []() ##iface enp0s3 inet dhcp
+
+## Si vamos utilizar network manager 
+
+Crear la conexión manual
+
+* []() con-name = Nombre de la conexión
+* []() autoconnect = Levante la conexión después de reiniciar el servidor
+* []() ifname = Nombre de la interfaz de red cargada
+* []() type = tipo de conexion
+* []() ipv4.method = conexion por dhcp,  estatica
+* []() ipv4.addresses =  ip v4
+* []() ipv4.gateway =  gateway
+* []() ipv4.dns  
+
+## crear la conexion estatica
+
+```
+root@kal:~# nmcli connection add con-name static autoconnect yes ifname enp0s3 type ethernet -- ipv4.method manual ipv4.addresses 192.168.8.216/24 ipv4.gateway 192.168.8.1 ipv4.dns 8.8.8.8
+
+```
+
+
+
 
 
 
