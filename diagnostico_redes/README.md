@@ -49,7 +49,7 @@ Transferir información
 ```
 
 root@lvm:~# touch hola.txt 
-echo "get index.html" > hola1.txt
+echo "get index.html" > hola.txt
 
 root@lvm:~# cat hola.txt  | nc -v google.com 80
 Connection to google.com 80 port [tcp/http] succeeded!
@@ -71,8 +71,36 @@ Date: Tue, 05 Nov 2019 22:21:16 GMT
   <p><b>400.</b> <ins>That’s an error.</ins>
   <p>Your client has issued a malformed or illegal request.  <ins>That’s all we know.</ins>
 
+```
+
+**Ejemplo #3 -  Servidor/Cliente**
+
+Crear un **Servidor** en una sesión nueva
+
+* []() -l para crear un server
+* []() -k si el cliente cierra la conexion no cierre el socket
+* []() 1234 es el puerto que se crea 
 
 ```
+root@lvm:~# nc -k -l 1234
+hola cliente 
+
+```
+
+Crear un **Cliente** en una sesión nueva, y poder transferir información
+```
+root@lvm:~# nc  127.0.0.1 1234
+hola cliente
+
+```
+Tranferir información dal Servidor, se pueden enviar la información  de un archivo una foto, etc
+
+```
+root@lvm:~# cat hola.txt | nc  127.0.0.1 1234
+root@lvm:~# 
+
+```
+
 
 
 
