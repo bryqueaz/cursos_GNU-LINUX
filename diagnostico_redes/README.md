@@ -108,7 +108,7 @@ Herramienta llamada nmap, en caso si no esta se debe instalar
 * []() Ubuntu/Debian **apt-get install nmap**
 * []() Centos/Redhat **yum install nmap**
 
-Ejemplo #1 - Para conocer los puertos abiertos de un equipo **nmap -v -A**
+**Ejemplo #1** - Para conocer los puertos abiertos de un equipo **nmap -v -A**
 
 ```
 root@lvm:~# nmap -v -A 192.168.8.1
@@ -136,7 +136,7 @@ Completed SYN Stealth Scan at 16:51, 1.22s elapsed (1000 total ports)
 Initiating Service scan at 16:51
 Scanning 5 services on 192.168.8.1
 ```
-Ejemplo #2 - Para conocer los equipos que responden a ping **nmap -sP**
+**Ejemplo #2** - Para conocer los equipos que responden a ping **nmap -sP**
 
 ```
 root@lvm:~# nmap -sP 192.168.8.0/24
@@ -160,7 +160,7 @@ Nmap done: 256 IP addresses (5 hosts up) scanned in 26.07 seconds
 
 ```
 
-Ejemplo #3 - Verifique y escanee puertos abiertos **nmap  192.168.8.0/24**
+**Ejemplo #3** - Verifique y escanee puertos abiertos **nmap  192.168.8.0/24**
 
 ```
 root@lvm:~# nmap  192.168.8.0/24
@@ -212,7 +212,7 @@ Nmap done: 256 IP addresses (6 hosts up) scanned in 260.16 seconds
 
 ```
 
-Ejemplo #4 - Identificar la el OS **nmap -O**
+**Ejemplo #4** - Identificar la el OS **nmap -O**
 
 ```
 root@lvm:~# nmap -O 192.168.8.197
@@ -234,7 +234,7 @@ Nmap done: 1 IP address (1 host up) scanned in 10.49 seconds
 
 ```
 
-Ejemplo #5 - Escanea los puertos TCP/UDP **nmap -sS -sU -PN**
+**Ejemplo #5** - Escanea los puertos TCP/UDP **nmap -sS -sU -PN**
 
 
 ```
