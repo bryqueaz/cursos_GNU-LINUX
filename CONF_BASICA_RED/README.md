@@ -163,7 +163,9 @@ root@kal:~# nmcli networking on
 nmcli connection down static
 nmcli connection up static
 ```
-## Modificar la conexion con NetworkManager **nmcli connection modify**
+## Modificar la conexion con NetworkManager 
+
+Se usa el comando **nmcli connection modify**
 
 ```
 nmcli connection modify pruebas2 ipv4.dns 1.1.1.1
