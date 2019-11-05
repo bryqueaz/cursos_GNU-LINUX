@@ -86,6 +86,8 @@ root@kal:~# nmcli connection add con-name static autoconnect yes ifname enp0s3 t
 
 ```
 
+Ejemplo nmtui
+
 ```
 root@lvm:~# nmtui
 
