@@ -250,17 +250,31 @@ post-up route add -host 10.0.1.4  gw 192.168.8.1
 
 ## Rutas persistente  CentOS7 y RHEL7
 
-Para RED
+Para agregar RED
 
 ```
 nmcli connection modify pruebas2 +ipv4.routes "172.8.1.6/24 192.168.8.1"
 
 ```
 
-Para host
+Para eliminar RED
+
+```
+nmcli connection modify pruebas2 -ipv4.routes "172.8.1.6/24 192.168.8.1"
+
+```
+
+Para  agregar host
 
 ```
 nmcli connection modify pruebas2 +ipv4.routes "172.8.1.5 192.168.8.1"
+
+```
+
+Para  eliminar  host
+
+```
+nmcli connection modify pruebas2 -ipv4.routes "172.8.1.5 192.168.8.1"
 
 ```
 
