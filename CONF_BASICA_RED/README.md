@@ -20,6 +20,34 @@ gateway 192.168.10.24
 dns-nameservers 8.8.8.8 4.4.4.4
 
 ```
+
+## Configuración de Red estatica -- CentOS ó RHEL
+
+
+Se debe editar el archivo /etc/sysconfig/network-scripts/ifcfg-enp0s3
+
+```
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=dhcp
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=enp0s3
+UUID=b526911f-3b4a-406f-9703-8adb1b198497
+DEVICE=enp0s3
+ONBOOT=yes
+IPV6_PRIVACY=no
+
+```
+
+
+
 ## Verificar si esta activo networking
 
 ```
