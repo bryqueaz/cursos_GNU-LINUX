@@ -163,6 +163,21 @@ root@kal:~# nmcli networking on
 nmcli connection down static
 nmcli connection up static
 ```
+## Modificar la conexion con NetworkManager **nmcli connection modify**
+
+```
+nmcli connection modify pruebas2 ipv4.dns 1.1.1.1
+```
+
+Para aplicar el cambio **nmcli connection up**
+
+```
+[root@centos7minimal ~]# nmcli connection up pruebas2 
+Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/2)
+```
+
+
+
 
 
 
