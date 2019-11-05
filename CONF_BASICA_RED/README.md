@@ -23,14 +23,17 @@ dns-nameservers 8.8.8.8 4.4.4.4
 
 ## Configuración de Red estatica -- CentOS ó RHEL
 
-
 Se debe editar el archivo /etc/sysconfig/network-scripts/ifcfg-enp0s3
 
 ```
 TYPE=Ethernet
 PROXY_METHOD=none
 BROWSER_ONLY=no
-BOOTPROTO=dhcp
+BOOTPROTO=none
+IPADDR=192.168.8.217
+PREFIX=24
+GATEWAY=192.168.8.1
+DNS1=8.8.8.8
 DEFROUTE=yes
 IPV4_FAILURE_FATAL=no
 IPV6INIT=yes
@@ -38,15 +41,12 @@ IPV6_AUTOCONF=yes
 IPV6_DEFROUTE=yes
 IPV6_FAILURE_FATAL=no
 IPV6_ADDR_GEN_MODE=stable-privacy
-NAME=enp0s3
-UUID=b526911f-3b4a-406f-9703-8adb1b198497
+NAME=static
+UUID=da33bf64-dc38-49e4-8b2c-c2ba32486078
 DEVICE=enp0s3
 ONBOOT=yes
-IPV6_PRIVACY=no
 
 ```
-
-
 
 ## Verificar si esta activo networking
 
@@ -111,6 +111,36 @@ Ejemplo nmcli
 
 ```
 root@kal:~# nmcli connection add con-name static autoconnect yes ifname enp0s3 type ethernet -- ipv4.method manual ipv4.addresses 192.168.8.216/24 ipv4.gateway 192.168.8.1 ipv4.dns 8.8.8.8
+Connection 'static' (da33bf64-dc38-49e4-8b2c-c2ba32486078) successfully added.
+
+```
+
+Otro Ejemplo
+
+Se crea la conexion **nmcli connection add**
+
+```
+[root@centos7minimal ~]# nmcli connection add con-name pruebas autoconnect yes ifname enp0s3 type ethernet -- ipv4.method manual ipv4.addresses 192.168.8.28/24 ipv4.gateway 192.168.8.1 ipv4.dns 8.8.8.8
+Connection 'pruebas' (f1283682-7cfe-40d5-a8ef-211a40120741) successfully added.
+
+```
+
+Verifica la conexion de pruebas **nmcli connection show** 
+
+```
+[root@centos7minimal ~]# nmcli connection show 
+NAME     UUID                                  TYPE      DEVICE 
+static   da33bf64-dc38-49e4-8b2c-c2ba32486078  ethernet  enp0s3 
+pruebas  f1283682-7cfe-40d5-a8ef-211a40120741  ethernet  -- 
+
+```
+
+Levanta la interfaz **nmcli connection up pruebas**
+
+Después de levantar se va perder conexion por lo tanto se debe conectar usando la IP  nueva
+
+```
+[root@centos7minimal ~]# nmcli connection up pruebas 
 
 ```
 
