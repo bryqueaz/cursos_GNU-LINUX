@@ -248,7 +248,7 @@ post-up route add -host 10.0.1.4  gw 192.168.8.1
 
 ```
 
-## Rutas persistente  CentOS7 y RHEL7
+## Rutas persistente usando NetworkManager CentOS7 y RHEL7
 
 Para agregar RED
 
@@ -278,7 +278,37 @@ nmcli connection modify pruebas2 -ipv4.routes "172.8.1.5 192.168.8.1"
 
 ```
 
+## Archivo de rutas persistente CentOS7 y RHEL7
 
+Ir al archivo vim /etc/sysconfig/network-scripts/route-pruebas2
+
+```
+ADDRESS0=172.16.0.0
+NETMASK0=255.255.255.0
+GATEWAY0=192.168.8.1
+ADDRESS1=172.16.1.3
+NETMASK1=255.255.255.255
+GATEWAY1=192.168.8.1
+ADDRESS2=172.16.1.4
+NETMASK2=255.255.255.0
+GATEWAY2=192.168.8.1
+ADDRESS3=172.16.1.4
+NETMASK3=255.255.255.255
+GATEWAY3=192.168.8.1
+ADDRESS4=172.16.1.5
+NETMASK4=255.255.255.255
+GATEWAY4=192.168.8.1
+ADDRESS5=172.8.1.5
+NETMASK5=255.255.255.255
+GATEWAY5=192.168.8.1
+ADDRESS6=172.8.1.6
+NETMASK6=255.255.255.255
+GATEWAY6=192.168.8.1
+ADDRESS7=10.122.2.111
+NETMASK7=255.255.255.255
+GATEWAY7=192.168.8.1
+
+```
 
 
 
