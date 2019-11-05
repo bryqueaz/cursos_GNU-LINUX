@@ -1,8 +1,10 @@
 ## Telnet 
 
-Esta herramienta no sirve para validar si hay comunicación TCP y interactura con un servicio
+Esta herramienta no sirve para validar si hay comunicación TCP y interactuar con un servicio
 
 Por ejemplo si ocupamos verificar si hay comunicación del protocolo de SSH(Puerto 22) con un servidor 192.168.8.197
+
+Ejemplo de una conexión satisfatoria
 
 ```
 bryan@kal-kvm:~$ telnet 192.168.8.197 22
@@ -16,6 +18,16 @@ telnet> quit
 Connection closed.
 
 ```
+Ejemplo de una conexión no satisfatoria
+
+```
+bryan@kal-kvm:~$ telnet 192.168.8.197 80
+Trying 192.168.8.197...
+telnet: Unable to connect to remote host: Connection refused
+
+```
+
+
 
 
 ## Crear TCP/UDP connections sockets
