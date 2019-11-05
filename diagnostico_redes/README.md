@@ -27,16 +27,18 @@ telnet: Unable to connect to remote host: Connection refused
 
 ```
 
-
-
-
 ## Crear TCP/UDP connections sockets
 
 Para ello va usar el comando NETCAT **nc**
 
+**Ejemplo #1**
 Este ejemplo lo que realiza es una conexion al puerto 80 de google, por lo general se utiliza para validar si se tiene acceso a nivel de RED
 
 ```
 bryan@kal-kvm:~$ nc -v google.com 80
 Connection to google.com 80 port [tcp/http] succeeded!
 ```
+**Ejemplo #2**
+
+
+
