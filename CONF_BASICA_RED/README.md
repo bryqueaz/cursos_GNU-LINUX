@@ -212,10 +212,10 @@ root@lvm:~# ip route
 
 Otra manera de agregar rutas
 
-* []() Crea Host: ip route add 10.0.1.3 via 192.168.10.1 dev enp0s3 
+* []() **Crea Host:** ip route add 10.0.1.3 via 192.168.10.1 dev enp0s3 
 * []() Borra host: ip route del 10.0.1.3 via 192.168.10.1 dev enp0s3 
 * []() Crea red: ip route add 192.0.2.0/24 via 192.168.8.1  dev enp0s3
-* []() Borra red: ip route add 192.0.2.0/24 via 192.168.8.1  dev enp0s3
+* []() Borra red: ip route del 192.0.2.0/24 via 192.168.8.1  dev enp0s3
 
 
 
