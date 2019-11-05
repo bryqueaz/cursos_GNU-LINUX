@@ -208,9 +208,14 @@ root@lvm:~# route del -net 172.16.0.0 netmask 255.255.0.0 gw 192.168.8.1
 root@lvm:~# ip route 
 ```
 
+## Crear y borrar rutas volatil para host y red
 
+Otra manera de agregar rutas
 
-
+* []() Crea Host: ip route add 10.0.1.3 via 192.168.10.1 dev enp0s3 
+* []() Borra host: ip route del 10.0.1.3 via 192.168.10.1 dev enp0s3 
+* []() Crea red: ip route add 192.0.2.0/24 via 192.168.8.1  dev enp0s3
+* []() Borra red: ip route add 192.0.2.0/24 via 192.168.8.1  dev enp0s3
 
 
 
