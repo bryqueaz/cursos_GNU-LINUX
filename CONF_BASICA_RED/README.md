@@ -178,6 +178,38 @@ Para aplicar el cambio **nmcli connection up**
 Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/2)
 ```
 
+## Crear rutas volatil para host
+
+Una ruta para poder alcanzar un host
+
+```
+root@lvm:~# route add -host 10.0.1.6 gw 192.168.8.1
+root@lvm:~# ip route 
+```
+
+##  Borrar rutas volatil para host
+
+```
+root@lvm:~# route  del -host 10.0.1.6 gw 192.168.8.1
+root@lvm:~# ip route 
+```
+
+## Crear rutas volatil para red
+
+```
+root@lvm:~# route add -net 172.16.0.0 netmask 255.255.0.0 gw 192.168.8.1
+root@lvm:~# ip route 
+```
+
+##  Borrar rutas volatil para red
+
+```
+root@lvm:~# route del -net 172.16.0.0 netmask 255.255.0.0 gw 192.168.8.1
+root@lvm:~# ip route 
+```
+
+
+
 
 
 
