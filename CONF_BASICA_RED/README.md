@@ -253,14 +253,14 @@ post-up route add -host 10.0.1.4  gw 192.168.8.1
 Para agregar RED
 
 ```
-nmcli connection modify pruebas2 +ipv4.routes "172.8.1.6/24 192.168.8.1"
+nmcli connection modify pruebas2 +ipv4.routes "172.8.1.0/24 192.168.8.1"
 
 ```
 
 Para eliminar RED
 
 ```
-nmcli connection modify pruebas2 -ipv4.routes "172.8.1.6/24 192.168.8.1"
+nmcli connection modify pruebas2 -ipv4.routes "172.8.1.0/24 192.168.8.1"
 
 ```
 
@@ -309,6 +309,55 @@ NETMASK7=255.255.255.255
 GATEWAY7=192.168.8.1
 
 ```
+## Configurar un bridge para ello se debe incluir una interface de red extra con nat Debian ó Ubuntu
+
+Editar el archivo vim /etc/network/interfaces
+```
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+##auto enp0s3
+
+##iface enp0s3 inet static
+
+# Bridge between enp0s3 and enp0s8
+auto br0
+#iface br0 inet dhcp
+iface br0 inet static
+
+address 192.168.8.197
+netmask 255.255.255.0
+gateway 192.168.8.1
+dns-nameservers 8.8.8.8 4.4.4.4
+up route add -host 192.168.8.101 gw 192.168.8.1
+up route add -net 172.28.0.0 netmask 255.255.0.0 gw 192.168.8.1
+post-up route add -host 10.0.1.4  gw 192.168.8.1
+bridge_ports enp0s3  enp0s8
+bridge_stp off
+bridge_fd 0
+bridge_maxwait 0
+
+```
+Reiniciar el servicio de red o reiniciar el servidor por que puede dar error
+
+```
+root@lvm:~# systemctl restart networking.service 
+Job for networking.service failed because the control process exited with error code. See "systemctl status networking.service" and "journalctl -xe" for details.
+
+```
+
+
+Verificar la creación de bridge
+
+```
+root@lvm:~# brctl show
+bridge name	bridge id		STP enabled	interfaces
+br0		8000.0800273b7c9b	no		enp0s3
+							        enp0s8
+```
+
 
 
 
