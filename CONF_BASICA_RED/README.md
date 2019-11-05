@@ -210,13 +210,43 @@ root@lvm:~# ip route
 
 ## Crear y borrar rutas volatil para host y red
 
-Otra manera de agregar rutas
+Otra manera de agregar rutas, las dos maneras son funcionales
 
 * []() **Crea Host:** ip route add 10.0.1.3 via 192.168.10.1 dev enp0s3 
-* []() Borra host: ip route del 10.0.1.3 via 192.168.10.1 dev enp0s3 
-* []() Crea red: ip route add 192.0.2.0/24 via 192.168.8.1  dev enp0s3
-* []() Borra red: ip route del 192.0.2.0/24 via 192.168.8.1  dev enp0s3
+* []() **Borra host:** ip route del 10.0.1.3 via 192.168.10.1 dev enp0s3 
+* []() **Crea red:** ip route add 192.0.2.0/24 via 192.168.8.1  dev enp0s3
+* []() **Borra red:** ip route del 192.0.2.0/24 via 192.168.8.1  dev enp0s3
 
+
+## Rutas persistente Ubuntu
+
+Se debe editar el archivo
+
+vim /etc/network/interfaces
+
+```
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto enp0s3
+iface enp0s3 inet static
+address 192.168.8.197
+netmask 255.255.255.0
+gateway 192.168.10.24
+dns-nameservers 8.8.8.8 4.4.4.4
+# Rutas
+up route add -host 192.168.8.101 gw 192.168.8.1
+up route add -net 172.28.0.0 netmask 255.255.0.0 gw 192.168.8.1
+post-up route add -host 10.0.1.4  gw 192.168.8.1
+
+```
 
 
 
