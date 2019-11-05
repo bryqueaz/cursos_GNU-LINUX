@@ -41,7 +41,7 @@ IPV6_AUTOCONF=yes
 IPV6_DEFROUTE=yes
 IPV6_FAILURE_FATAL=no
 IPV6_ADDR_GEN_MODE=stable-privacy
-NAME=static
+NAME=enp0s3
 UUID=da33bf64-dc38-49e4-8b2c-c2ba32486078
 DEVICE=enp0s3
 ONBOOT=yes
@@ -150,8 +150,6 @@ Ejemplo nmtui
 root@lvm:~# nmtui
 
 ```
-
-
 ## Habilitar el control de la interfaces con NetworkManager
 
 ```
