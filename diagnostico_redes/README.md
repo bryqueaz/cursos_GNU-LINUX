@@ -259,7 +259,91 @@ MAC Address: 6C:3B:6B:F3:25:C9 (Unknown)
 Nmap done: 1 IP address (1 host up) scanned in 207.01 seconds
 ```
 
+## TCPDUMP herramienta para analizar paquetes de red
+
+**Ejemplo #1 Escuchar la conexión de un equipo que se conecta via SSH, se puede visualizar los paquetes**
+
+```
+root@lvm:~# tcpdump -n ip host 192.168.8.29
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on br0, link-type EN10MB (Ethernet), capture size 262144 bytes
+17:21:02.898546 IP 192.168.8.29.51406 > 192.168.8.197.22: Flags [S], seq 3277030250, win 29200, options [mss 1460,sackOK,TS val 12361109 ecr 0,nop,wscale 7], length 0
+17:21:02.898586 IP 192.168.8.197.22 > 192.168.8.29.51406: Flags [S.], seq 3756513246, ack 3277030251, win 28960, options [mss 1460,sackOK,TS val 2531796 ecr 12361109,nop,wscale 7], length 0
+17:21:02.898763 IP 192.168.8.29.51406 > 192.168.8.197.22: Flags [.], ack 1, win 229, options [nop,nop,TS val 12361118 ecr 2531796], length 0
+17:21:02.899519 IP 192.168.8.29.51406 > 192.168.8.197.22: Flags [P.], seq 1:22, ack 1, win 229, options [nop,nop,TS val 12361118 ecr 2531796], length 21
+17:21:02.899535 IP 192.168.8.197.22 > 192.168.8.29.51406: Flags [.], ack 22, win 227, options [nop,nop,TS val 2531796 ecr 12361118], length 0
+17:21:02.909702 IP 192.168.8.197.22 > 192.168.8.29.51406: Flags [P.], seq 1:42, ack 22, win 227, options [nop,nop,TS val 2531798 ecr 12361118], length 41
+17:21:02.910029 IP 192.168.8.29.51406 > 192.168.8.197.22: Flags [.], ack 42, win 229, options [nop,nop,TS val 12361129 ecr 2531798], length 0
+17:21:02.910497 IP 192.168.8.29.51406 > 192.168.8.197.22: Flags [P.], seq 22:1518, ack 42, win 229, options [nop,nop,TS val 12361129 ecr 2531798], length 1496
+17:21:02.910511 IP 192.168.8.197.22 > 192.168.8.29.51406: Flags [.], ack 1518, win 250, options [nop,nop,TS val 2531799 ecr 12361129], length 0
+17:21:02.910964 IP 192.168.8.197.22 > 192.168.8.29.51406: Flags [P.], seq 42:1018, ack 1518, win 250, options [nop,nop,TS val 2531799 ecr 12361129], length 976
+17:21:02.915211 IP 192.168.8.29.51406 > 192.168.8.197.22: Flags [P.], seq 1518:1566, ack 1018, win 244, options [nop,nop,TS val 12361131 ecr 2531799], length 48
+17:21:02.920515 IP 192.168.8.197.22 > 192.168.8.29.51406: Flags [P.], seq 1018:1382, ack 1566, win 250, options [nop,nop,TS val 2531801 ecr 12361131], length 364
+17:21:02.959860 IP 192.168.8.29.51406 > 192.168.8.197.22: Flags [.], ack 1382, win 259, options [nop,nop,TS val 12361180 ecr 2531801], length 0
 
 
+```
+
+**Ejemplo #2 Escuchar la conexion y poder ver parte del contenido si esta cifrado no se puede visualizar**
+
+```
+root@lvm:~# tcpdump -s 2000 -Aa ip host 192.168.8.29
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on br0, link-type EN10MB (Ethernet), capture size 2000 bytes
+17:23:47.892335 IP 192.168.8.29.51408 > 192.168.8.197.ssh: Flags [S], seq 1660636153, win 29200, options [mss 1460,sackOK,TS val 12530069 ecr 0,nop,wscale 7], length 0
+E..<zl@.@...............b.K.......r............
+..1.........
+17:23:47.892378 IP 192.168.8.197.ssh > 192.168.8.29.51408: Flags [S.], seq 642327404, ack 1660636154, win 28960, options [mss 1460,sackOK,TS val 2573044 ecr 12530069,nop,wscale 7], length 0
+E..<..@.@...............&I#lb.K...q .a.........
+.'B...1.....
+17:23:47.892548 IP 192.168.8.29.51408 > 192.168.8.197.ssh: Flags [.], ack 1, win 229, options [nop,nop,TS val 12530074 ecr 2573044], length 0
+E..4zm@.@..$............b.K.&I#m...........
+..1..'B.
+17:23:47.893281 IP 192.168.8.29.51408 > 192.168.8.197.ssh: Flags [P.], seq 1:22, ack 1, win 229, options [nop,nop,TS val 12530075 ecr 2573044], length 21
+E..Izn@.@...............b.K.&I#m...........
+..1..'B.SSH-2.0-OpenSSH_7.4
+
+17:23:47.893295 IP 192.168.8.197.ssh > 192.168.8.29.51408: Flags [.], ack 22, win 227, options [nop,nop,TS val 2573044 ecr 12530075], length 0
+E..4a.@.@.F.............&I#mb.L......Y.....
+.'B...1.
+17:23:47.901872 IP 192.168.8.197.ssh > 192.168.8.29.51408: Flags [P.], seq 1:42, ack 22, win 227, options [nop,nop,TS val 2573045 ecr 12530075], length 41
+E..]a.@.@.F.............&I#mb.L............
+.'B...1.SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.7
+
+17:23:47.902244 IP 192.168.8.29.51408 > 192.168.8.197.ssh: Flags [.], ack 42, win 229, options [nop,nop,TS val 12530084 ecr 2573045], length 0
+E..4zo@.@.."............b.L.&I#......U.....
+..1..'B.
 
 
+```
+
+**Ejemplo #3 Escuchar la conexion de un equipo en rango de puertos usando una interfaz especifica**
+
+```
+root@lvm:~# tcpdump  -nn ip host 192.168.8.29 and portrange 22-162 -i br0
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on br0, link-type EN10MB (Ethernet), capture size 262144 bytes
+17:26:30.582406 IP 192.168.8.29.51408 > 192.168.8.197.22: Flags [P.], seq 1660638567:1660638603, ack 642331122, win 290, options [nop,nop,TS val 12696671 ecr 2573630], length 36
+17:26:30.583107 IP 192.168.8.197.22 > 192.168.8.29.51408: Flags [P.], seq 1:37, ack 36, win 295, options [nop,nop,TS val 2613717 ecr 12696671], length 36
+17:26:30.583425 IP 192.168.8.29.51408 > 192.168.8.197.22: Flags [.], ack 37, win 290, options [nop,nop,TS val 12696672 ecr 2613717], length 0
+17:26:30.860945 IP 192.168.8.29.51408 > 192.168.8.197.22: Flags [P.], seq 36:72, ack 37, win 290, options [nop,nop,TS val 12696956 ecr 2613717], length 36
+17:26:30.861256 IP 192.168.8.197.22 > 192.168.8.29.51408: Flags [P.], seq 37:73, ack 72, win 295, options [nop,nop,TS val 2613786 ecr 12696956], length 36
+17:26:30.861576 IP 192.168.8.29.51408 > 192.168.8.197.22: Flags [.], ack 73, win 290, options [nop,nop,TS val 12696957 ecr 2613786], length 0
+17:26:31.119842 IP 192.168.8.29.51408 > 192.168.8.197.22: Flags [P.], seq 72:108, ack 73, win 290, options [nop,nop,TS val 12697221 ecr 2613786], length 36
+17:26:31.120128 IP 192.168.8.197.22 > 192.168.8.29.51408: Flags [P.], seq 73:109, ack 108, win 295, options [nop,nop,TS val 2613851 ecr 12697221], length 36
+17:26:31.120425 IP 192.168.8.29.51408 > 192.168.8.197.22: Flags [.], ack 109, win 290, options [nop,nop,TS val 12697222 ecr 2613851], length 0
+17:26:31.244496 IP 192.168.8.29.51408 > 192.168.8.197.22: Flags [P.], seq 108:144, ack 109, win 290, options [nop,nop,TS val 12697349 ecr 2613851], length 36
+17:26:31.244776 IP 192.168.8.197.22 > 192.168.8.29.51408: Flags [P.], seq 109:145, ack 144, win 295, options [nop,nop,TS val 2613882 ecr 12697349], length 36
+17:26:31.245033 IP 192.168.8.29.51408 > 192.168.8.197.22: Flags [.], ack 145, win 290, options [nop,nop,TS val 12697349 ecr 2613882], length 0
+17:26:31.735951 IP 192.168.8.29.51408 > 192.168.8.197.22: Flags [P.], seq 144:180, ack 145, win 290, options [nop,nop,TS val 12697852 ecr 2613882], length 36
+17:26:31.736869 IP 192.168.8.197.22 > 192.168.8.29.51408: Flags [P.], seq 145:189, ack 180, win 295, options [nop,nop,TS val 2614005 ecr 12697852], length 44
+17:26:31.737141 IP 192.168.8.29.51408 > 192.168.8.197.22: Flags [.], ack 189, win 290, options [nop,nop,TS val 12697853 ecr 2614005], length 0
+17:26:31.739636 IP 192.168.8.197.22 > 192.168.8.29.51408: Flags [P.], seq 189:365, ack 180, win 295, options [nop,nop,TS val 2614006 ecr 12697853], length 176
+17:26:31.739921 IP 192.168.8.29.51408 > 192.168.8.197.22: Flags [.], ack 365, win 305, options [nop,nop,TS val 12697856 ecr 2614006], length 0
+17:26:31.740174 IP 192.168.8.29.51408 > 192.168.8.197.22: Flags [P.], seq 180:216, ack 365, win 305, options [nop,nop,TS val 12697856 ecr 2614006], length 36
+17:26:31.740337 IP 192.168.8.29.51408 > 192.168.8.197.22: Flags [P.], seq 216:276, ack 365, win 305, options [nop,nop,TS val 12697857 ecr 2614006], length 60
+17:26:31.740487 IP 192.168.8.29.51408 > 192.168.8.197.22: Flags [F.], seq 276, ack 365, win 305, options [nop,nop,TS val 12697857 ecr 2614006], length 0
+17:26:31.740782 IP 192.168.8.197.22 > 192.168.8.29.51408: Flags [.], ack 277, win 295, options [nop,nop,TS val 2614006 ecr 12697856], length 0
+17:26:31.748446 IP 192.168.8.197.22 > 192.168.8.29.51408: Flags [F.], seq 365, ack 277, win 295, options [nop,nop,TS val 2614008 ecr 12697856], length 0
+17:26:31.748747 IP 192.168.8.29.51408 > 192.168.8.197.22: Flags [.], ack 366, win 305, options [nop,nop,TS val 12697865 ecr 2614008], length 0
+```
