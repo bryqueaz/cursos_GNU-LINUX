@@ -93,13 +93,20 @@ root@lvm:~# nc  127.0.0.1 1234
 hola cliente
 
 ```
-Tranferir información dal Servidor, se pueden enviar la información  de un archivo una foto, etc
+Transferir información dal Servidor, se pueden enviar la información de un archivo una foto, etc
 
 ```
 root@lvm:~# cat hola.txt | nc  127.0.0.1 1234
 root@lvm:~# 
 
 ```
+
+## Herramienta de diagnóstico para administradores de red 
+
+Herramienta llamada nmap, en caso si no esta se debe instalar
+
+* []() Ubuntu/Debian apt-get install nmap 
+* []() Centos/Redhat yum install nmap
 
 
 
