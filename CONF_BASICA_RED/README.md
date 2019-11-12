@@ -176,6 +176,8 @@ root@kal:~# nmcli networking on
 
 ## Luego levantar las interfaces
 
+Recordar que si se hace este metodo se debe tener acceso fisico al equipo.
+
 ```
 nmcli connection down static
 nmcli connection up static
