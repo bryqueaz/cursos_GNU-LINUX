@@ -110,7 +110,7 @@ Se puede usando el cli **nmcli** o gráfico usando con **nmtui**
 Ejemplo nmcli
 
 ```
-root@kal:~# nmcli connection add con-name static autoconnect yes ifname enp0s3 type ethernet ipv4.method manual ipv4.addresses 192.168.8.216/24 ipv4.gateway 192.168.8.1 ipv4.dns 8.8.8.8
+root@kal:~# nmcli connection add con-name static autoconnect yes ifname enp0s3 type ethernet -- ipv4.method manual ipv4.addresses 192.168.8.216/24 ipv4.gateway 192.168.8.1 ipv4.dns 8.8.8.8
 Connection 'static' (da33bf64-dc38-49e4-8b2c-c2ba32486078) successfully added.
 
 ```
