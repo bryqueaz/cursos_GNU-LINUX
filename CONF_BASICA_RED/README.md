@@ -130,8 +130,6 @@ Opcional -- Despues se cambia a estatica de manera usando **nmtui**
 root@lvm:~# nmtui
 ```
 
-
-
 Otro Ejemplo
 
 Se crea la conexion **nmcli connection add**
@@ -296,6 +294,24 @@ Para  eliminar  host
 nmcli connection modify pruebas -ipv4.routes "172.8.1.5 192.168.8.1"
 
 ```
+Para cargar la rutas, se debe conectar con la nueva IP
+
+```
+root@lvm:~# nmcli connection up pruebas 
+
+```
+Verificar las rutas, se recuerda que anteriormente se borraron
+
+```
+root@lvm:~# ip route 
+default via 192.168.8.1 dev enp0s3  proto static  metric 100 
+172.8.1.0/24 via 192.168.8.1 dev enp0s3  proto static  metric 100 
+172.8.1.5 via 192.168.8.1 dev enp0s3  proto static  metric 100 
+192.168.8.0/24 dev enp0s3  proto kernel  scope link  src 192.168.8.28  metric 100 
+
+```
+
+
 
 ## Archivo de rutas persistente CentOS7 y RHEL7
 
