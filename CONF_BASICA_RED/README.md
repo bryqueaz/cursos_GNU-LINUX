@@ -392,6 +392,16 @@ bridge name	bridge id		STP enabled	interfaces
 br0		8000.0800273b7c9b	no		enp0s3
 							        enp0s8
 ```
+## Crear un bridge con NetworkManager
+
+```
+nmcli connection add con-name bridge type bridge ifname br0
+nmcli con add type bridge-slave ifname enp0s8  master br0
+nmcli con add type bridge-slave ifname enp0s3  master br0
+
+```
+
+Por ultimo cambiar la IP de Bridge con **nmtui**
 
 
 
