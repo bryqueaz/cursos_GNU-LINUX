@@ -187,13 +187,13 @@ nmcli connection up static
 Se usa el comando **nmcli connection modify**
 
 ```
-nmcli connection modify pruebas2 ipv4.dns 1.1.1.1
+nmcli connection modify pruebas ipv4.dns 1.1.1.1
 ```
 
 Para aplicar el cambio **nmcli connection up**
 
 ```
-[root@centos7minimal ~]# nmcli connection up pruebas2 
+[root@centos7minimal ~]# nmcli connection up pruebas 
 Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/2)
 ```
 
@@ -272,28 +272,28 @@ post-up route add -host 10.0.1.4  gw 192.168.8.1
 Para agregar RED
 
 ```
-nmcli connection modify pruebas2 +ipv4.routes "172.8.1.0/24 192.168.8.1"
+nmcli connection modify pruebas +ipv4.routes "172.8.1.0/24 192.168.8.1"
 
 ```
 
 Para eliminar RED
 
 ```
-nmcli connection modify pruebas2 -ipv4.routes "172.8.1.0/24 192.168.8.1"
+nmcli connection modify pruebas -ipv4.routes "172.8.1.0/24 192.168.8.1"
 
 ```
 
 Para  agregar host
 
 ```
-nmcli connection modify pruebas2 +ipv4.routes "172.8.1.5 192.168.8.1"
+nmcli connection modify pruebas +ipv4.routes "172.8.1.5 192.168.8.1"
 
 ```
 
 Para  eliminar  host
 
 ```
-nmcli connection modify pruebas2 -ipv4.routes "172.8.1.5 192.168.8.1"
+nmcli connection modify pruebas -ipv4.routes "172.8.1.5 192.168.8.1"
 
 ```
 
