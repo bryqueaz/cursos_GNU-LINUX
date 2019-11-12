@@ -76,19 +76,19 @@ dhclient enp0s3
 * []() systemctl start network-manager.service // inicia el servicio
 * []() systemctl enable network-manager.service // habilitar después de un reinicio
 
-## Deshabilitar network
-
-* []() systemctl status networking.service
-* []() systemctl stop networking.service
-* []() systemctl disable networking.service
-* []() systemctl mask networking.service // mask el servicio 
-
 ## Comentar las lineas /etc/network/interfaces
 
 * []() #auto lo
 * []() #iface lo inet loopback
 * []() ##auto enp0s3
 * []() ##iface enp0s3 inet dhcp
+
+## Deshabilitar network
+
+* []() systemctl status networking.service
+* []() systemctl stop networking.service
+* []() systemctl disable networking.service
+* []() systemctl mask networking.service // mask el servicio 
 
 ## Si vamos utilizar network manager 
 
