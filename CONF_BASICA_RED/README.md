@@ -403,6 +403,24 @@ nmcli con add type bridge-slave ifname enp0s3  master br0
 
 Por ultimo cambiar la IP de Bridge con **nmtui**
 
+Verificar las conexiones
+
+```
+root@lvm:~# nmcli connection show
+NAME                 UUID                                  TYPE            DEVICE 
+bridge               819642bf-162b-4e3c-8d6c-4b9299f659e6  bridge          br0    
+bridge-slave-enp0s3  a4d1ebd4-a902-493a-a229-d2cfc8ac0861  802-3-ethernet  enp0s3 
+bridge-slave-enp0s8  0c994125-8e2e-41ad-a046-a63019762593  802-3-ethernet  enp0s8 
+
+
+root@lvm:~# brctl show
+bridge name	bridge id		STP enabled	interfaces
+br0		8000.0800273b7c9b	no		enp0s3
+							enp0s8
+                            
+```
+
+
 
 
 
