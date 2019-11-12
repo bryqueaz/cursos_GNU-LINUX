@@ -107,13 +107,30 @@ Crear la conexión manual
 
 Se puede usando el cli **nmcli** o gráfico usando con **nmtui**  
 
-Ejemplo nmcli
+Ejemplo nmcli configuracion completa
 
 ```
 root@kal:~# nmcli connection add con-name static autoconnect yes ifname enp0s3 type ethernet -- ipv4.method manual ipv4.addresses 192.168.8.216/24 ipv4.gateway 192.168.8.1 ipv4.dns 8.8.8.8
 Connection 'static' (da33bf64-dc38-49e4-8b2c-c2ba32486078) successfully added.
 
 ```
+
+Opcional --  Otra manera es si a uno se le olvida los parametros, la crea por default por dhcp
+
+
+```
+root@kal:~# nmcli connection add con-name static autoconnect yes ifname enp0s3 type ethernet
+Connection 'static' (da33bf64-dc38-49e4-8b2c-c2ba32486078) successfully added.
+
+```
+
+Opcional -- Despues se cambia a estatica de manera usando **nmtui**
+
+```
+root@lvm:~# nmtui
+```
+
+
 
 Otro Ejemplo
 
