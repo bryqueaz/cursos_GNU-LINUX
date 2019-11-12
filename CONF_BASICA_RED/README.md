@@ -120,7 +120,7 @@ Otro Ejemplo
 Se crea la conexion **nmcli connection add**
 
 ```
-[root@centos7minimal ~]# nmcli connection add con-name pruebas autoconnect yes ifname enp0s3 type ethernet ipv4.method manual ipv4.addresses 192.168.8.28/24 ipv4.gateway 192.168.8.1 ipv4.dns 8.8.8.8
+[root@centos7minimal ~]# nmcli connection add con-name pruebas autoconnect yes ifname enp0s3 type ethernet -- ipv4.method manual ipv4.addresses 192.168.8.28/24 ipv4.gateway 192.168.8.1 ipv4.dns 8.8.8.8
 Connection 'pruebas' (f1283682-7cfe-40d5-a8ef-211a40120741) successfully added.
 
 ```
