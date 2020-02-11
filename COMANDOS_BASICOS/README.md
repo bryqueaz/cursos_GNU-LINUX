@@ -1,3 +1,5 @@
 # Instalar dicionario de words
 
-yum install words
+**Ejemplos*
+
+* []() **yum install words** instala el paquete.
