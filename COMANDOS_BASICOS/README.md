@@ -2,4 +2,4 @@
 
 **Ejemplos*
 
-* []() **yum install words** instala el paquete.
+* []() **yum install words** -> instala el paquete.
