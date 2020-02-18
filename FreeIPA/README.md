@@ -142,6 +142,13 @@ Ejemplo #2
 ```
 [root@ipa ~]# ldapsearch -x uid=bryqueaz -b dc=greencore,dc=local
 ```
+Ejemplo #3
+
+```
+[root@ipa ~]# ldapsearch  -x  uid=admin -b dc=greencore,dc=local  -H ldaps://ipa.greencore.local -D "uid=admin,cn=users,cn=accounts,dc=greencore,dc=local" -W 
+Enter LDAP Password: 
+```
+
 
 ## Paso #13
 
