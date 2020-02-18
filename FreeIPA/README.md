@@ -134,6 +134,12 @@ Para eliminar el error del home del usuario se debe crear manual, o bien crear c
 
 **Buscar con ldapsearch**
 
+* []() **dn** es el nombre de la entrada; no es un atributo ni tampoco parte de la entrada. “cn=John Doe” es el nombre distinguido relativo
+* []() **dc** es para domain component (componente de dominio)
+* []() **sn**  para surname (apellido)
+* []() **cn** para common name (nombre común),
+
+
 Ejemplo #1
 ```
 [root@ipa ~]# ldapsearch -x cn=kal -b dc=greencore,dc=local
