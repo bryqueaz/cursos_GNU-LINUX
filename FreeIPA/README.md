@@ -68,3 +68,21 @@ Si uno quiere tener ipa con DNS(opcional)
 [root@ipa ~]# firewall-cmd --reload
 ```
 
+## Paso #8 
+
+**Configurar el server de IPA de manera desantendida**
+
+Ejecutamos las siguinetes lineas para definir de manera volatil los valores de las variables para la instalación:
+
+```
+[root@ipa ~]# IP_ADDR=192.168.8.84
+[root@ipa ~]# DOMAIN=greencore.local
+[root@ipa ~]# HOSTNAME=ipa.greencore.local
+[root@ipa ~]# SHORTNAME=ipa
+[root@ipa ~]# REALM=GREENCORE.LOCAL
+```
+**Inicia la instalación**
+```
+[root@ipa ~]# ipa-server-install --domain=$DOMAIN --realm=$REALM --ds-password=password --admin-password=password --hostname=$HOSTNAME --ip-address=$IP_ADDR --unattended
+```
+
