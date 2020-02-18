@@ -90,8 +90,8 @@ Ejecutamos las siguinetes lineas para definir de manera volatil los valores de l
 
 **Probar la conexion**
 ```
-[root@ipa ~]# getent passwd kal
-kal:*:1756200001:1756200001:bryqueaz Quesada:/home/kal:/bin/sh
+[root@ipa ~]# getent passwd admin
+admin:*:1756200000:1756200000:Administrator:/home/admin:/bin/bash
 ```
 **Realizar una conexión**
 
