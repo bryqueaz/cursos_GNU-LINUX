@@ -86,3 +86,18 @@ Ejecutamos las siguinetes lineas para definir de manera volatil los valores de l
 [root@ipa ~]# ipa-server-install --domain=$DOMAIN --realm=$REALM --ds-password=password --admin-password=password --hostname=$HOSTNAME --ip-address=$IP_ADDR --unattended
 ```
 
+## Paso #9
+
+**Probar la conexion**
+
+ Deber dar un error de /home/admin no existe
+```
+ssh admin@ipa.greencore.local 
+```
+Para eliminar el error del home del usuario se debe crear manual, o bien crear con autofs
+```
+[root@ipa ~]#cd /home
+[root@ipa ~]# mkdir  admin
+[root@ipa ~]#chown admin admin/
+```
+
