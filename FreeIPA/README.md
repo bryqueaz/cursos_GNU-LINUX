@@ -133,4 +133,7 @@ Para eliminar el error del home del usuario se debe crear manual, o bien crear c
 ```
 [root@ipa ~]# ipa passwd blaster
 ```
+## Paso #14
 
+Ingresar via web, con el usuario admin y a contraseña definida en el paso de instalación
+* []() https://ipa.greencore.local/
