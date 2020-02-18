@@ -90,14 +90,40 @@ Ejecutamos las siguinetes lineas para definir de manera volatil los valores de l
 
 **Probar la conexion**
 
- Deber dar un error de /home/admin no existe
+ Deber dar un error de /home/admin no existe, esta bien que error lo muestre
 ```
-ssh admin@ipa.greencore.local 
+[root@ipa ~]# ssh admin@ipa.greencore.local 
 ```
 Para eliminar el error del home del usuario se debe crear manual, o bien crear con autofs
 ```
-[root@ipa ~]#cd /home
+[root@ipa ~]# cd /home
 [root@ipa ~]# mkdir  admin
 [root@ipa ~]#chown admin admin/
+```
+## Paso #10
+
+**Creamos una sesión de Kerberos para finalizar con la configuración, via comandos**
+```
+[root@ipa ~]# kinit admin
+```
+
+## Paso #11
+
+**Creamos un usuario**
+```
+[root@ipa ~]# ipa user-add blaster --first=coronado --last=dulce
+```
+
+## Paso #12
+
+**Buscar con ldapsearch**
+```
+[root@ipa ~]# ldapsearch -x cn=kal -b dc=greencore,dc=local
+```
+## Paso #13
+
+**Cambiar constraseña**
+```
+[root@ipa ~]# ipa passwd blaster
 ```
 
