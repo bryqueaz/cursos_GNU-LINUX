@@ -12,7 +12,7 @@
 [root@ipa ~]# yum install bash-completion vim nss
 ```
 
-##Paso #2
+## Paso #2
 
 **Activar centosPlus**
 
