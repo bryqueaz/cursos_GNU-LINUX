@@ -89,8 +89,15 @@ Ejecutamos las siguinetes lineas para definir de manera volatil los valores de l
 ## Paso #9
 
 **Probar la conexion**
+```
+[root@ipa ~]# getent passwd kal
+kal:*:1756200001:1756200001:bryqueaz Quesada:/home/kal:/bin/sh
+```
+**Realizar una conexión**
 
- Deber dar un error de /home/admin no existe, esta bien que error lo muestre
+ Deber dar un error de /home/admin no existe, esta bien que error lo muestre.
+ Probar conectar desde otro equipo
+
 ```
 [root@ipa ~]# ssh admin@ipa.greencore.local 
 ```
