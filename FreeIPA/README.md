@@ -117,16 +117,32 @@ Para eliminar el error del home del usuario se debe crear manual, o bien crear c
 ## Paso #11
 
 **Creamos un usuario**
+
 ```
 [root@ipa ~]# ipa user-add blaster --first=coronado --last=dulce
+```
+
+```
+[root@ipa ~]# ipa user-add kal --first=kal --last=kal
+```
+
+```
+[root@ipa ~]# ipa user-add bryqueaz --first=bryqueaz --last=bryqueaz
 ```
 
 ## Paso #12
 
 **Buscar con ldapsearch**
+
+Ejemplo #1
 ```
 [root@ipa ~]# ldapsearch -x cn=kal -b dc=greencore,dc=local
 ```
+Ejemplo #2
+```
+[root@ipa ~]# ldapsearch -x uid=bryqueaz -b dc=greencore,dc=local
+```
+
 ## Paso #13
 
 **Cambiar constraseña**
