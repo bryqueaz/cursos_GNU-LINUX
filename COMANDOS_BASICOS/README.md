@@ -12,3 +12,4 @@
 * []()  sed -n 12,18p  algo.txt  -> muestra las lineas de 12 a 18
 * []()  df -hT | awk '{print  "file system " $1  " -----> size: "  $4}' . -> Parsea informacion y la concatena
 * []() hostnamectl  | awk -F : '/Operating System/ {print $2}' -> Busca la version del OS y la separa por :
+* []() iptables -nL  | grep  "tcp dpt:22"  | awk  '/ACCEPT/ {print $1 " "  $2  " " $3  " " $4  "  "  $5 " "  $6 " "  $7   }'  | sed  -n 1p -> Busca si la regla de ssh esta activa a nivel de firewall
