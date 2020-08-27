@@ -19,7 +19,7 @@ Utilizar el de mayor experiencia
 
 ## Descargar la imagen de CentOS 7
 
-> Descargar de los mirrors de la UCR  [UCR](http://mirrors.ucr.ac.cr/centos/7.8.2003/isos/x86_64/CentOS-7-x86_64-Minimal-2003.iso) para su referencia
+> Descargar de los mirrors de la [UCR](http://mirrors.ucr.ac.cr/centos/7.8.2003/isos/x86_64/CentOS-7-x86_64-Minimal-2003.iso) para su referencia
 
 ## Clase #1
 
