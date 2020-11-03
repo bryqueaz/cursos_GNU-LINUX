@@ -321,12 +321,9 @@ root@lvm:~# vgextend vg_greencore /dev/sdb3
 Extender el Volumen logico de swap se debe buscar cual o cuales Ejemplo lv_swap
 
 ```
-root@lvm:~# lvextend /dev/vg_greencore/lv_swap -L +1G -r
-fsck from util-linux 2.27.1
-  Size of logical volume vg_greencore/lv_swap changed from 2.86 GiB (733 extents) to 3.86 GiB (989 extents).
-  Logical volume lv_swap successfully resized.
-fsadm: Filesystem "swap" on device "/dev/mapper/vg_greencore-lv_swap" is not supported by this tool
-  fsadm failed: 1
+root@lvm:~# lvextend /dev/vg_greencore/lv_swap -L +1G
+  Size of logical volume centos_centos7-base/swap changed from 1.00 GiB (256 extents) to 1.48 GiB (379 extents).
+  Logical volume centos_centos7-base/swap successfully resized.
 ```
 
 **Paso #4**
