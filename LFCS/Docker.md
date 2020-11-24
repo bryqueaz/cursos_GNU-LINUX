@@ -24,3 +24,4 @@
 - docker exec -it miprimer_container_opachito bash // para conectar a la instancia de un docker
 - docker inspect miprimer_container_opachito // obtener la configuracion del contenedor
 - docker run --name miprimer_container_opachito --restart=always -v /var/www/html:/usr/local/apache2/htdocs -d  httpd // crea un contenedor donde se publica el public directory de apache
+- docker run --name mitercer_container_apachito --restart=always -p 8090:80 -d httpd // para publicar el puerto 80 del contenedor en el puertp 8090 del host
