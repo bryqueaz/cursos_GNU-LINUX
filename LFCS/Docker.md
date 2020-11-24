@@ -21,3 +21,4 @@
 -  docker container rm miprimer_container_opachito // como eliminar con contenedor
 - docker run --name miprimer_container_opachito --restart=always -d  httpd // levanta un contenedor en background
 - docker exec -it miprimer_container_opachito bash // para conectar a la instancia de un docker
+- docker inspect miprimer_container_opachito // obtener la configuracion del contenedor
