@@ -1,4 +1,4 @@
-### Proceso de instalación de Docker
+# Proceso de instalación de Docker
 
   - yum install bash-completion
   - yum install epel-release
@@ -8,7 +8,7 @@
   - systemctl enable docker
   - systemctl start docker
 
-### Comandos para docker
+# Comandos para docker
 
 - docker container ls -a  // muestra los contenedores activos y no activos
 - docker ps  // // muestra los contenedores
