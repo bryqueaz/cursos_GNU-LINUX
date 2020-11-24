@@ -8,3 +8,7 @@
   - systemctl enable docker
   - systemctl start docker
 
+### Comandos para docker
+
+- docker container ls -a  // muestra los contenedores activos y no activos
+- docker ps  // // muestra los contenedores
