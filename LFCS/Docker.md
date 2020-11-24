@@ -17,3 +17,4 @@
 - docker search nginx
 - docker pull httpd // descarga la imagen de apache
 - docker run --name miprimer_container_opachito --restart=always httpd  // vevanta un contenedor con la imagen de apache, con restart automatico y con el nombre miprimer_container_opachito
+- docker container stop miprimer_container_opachito // detener un container
