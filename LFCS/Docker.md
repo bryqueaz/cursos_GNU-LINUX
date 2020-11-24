@@ -6,4 +6,4 @@
   - yum install docker-ce docker-ce-cli containerd.io
   - systemctl enable docker
   - systemctl start docker
-  - yum install docker-compose
+
