@@ -13,3 +13,6 @@
 - docker container ls -a  // muestra los contenedores activos y no activos
 - docker ps  // // muestra los contenedores
 - docker image ls -a // muestra la imagenes descargadas en mi docker
+- docker search apache // para buscar imagenes
+- docker search nginx
+- docker pull httpd // descarga la imagen de apache
