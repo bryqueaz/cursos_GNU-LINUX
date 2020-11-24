@@ -23,3 +23,4 @@
 - docker run --name miprimer_container_opachito --restart=always -d  httpd // levanta un contenedor en background
 - docker exec -it miprimer_container_opachito bash // para conectar a la instancia de un docker
 - docker inspect miprimer_container_opachito // obtener la configuracion del contenedor
+-- docker run --name miprimer_container_opachito --restart=always -v /var/www/html:/usr/local/apache2/htdocs -d  httpd // crea un contenedor donde se publica el public directory de apache
