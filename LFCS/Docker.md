@@ -19,3 +19,4 @@
 - docker run --name miprimer_container_opachito --restart=always httpd  // vevanta un contenedor con la imagen de apache, con restart automatico y con el nombre miprimer_container_opachito
 - docker container stop miprimer_container_opachito // detener un container
 -  docker container rm miprimer_container_opachito // como eliminar con contenedor
+- docker run --name miprimer_container_opachito --restart=always -d  httpd // levanta un contenedor en background
