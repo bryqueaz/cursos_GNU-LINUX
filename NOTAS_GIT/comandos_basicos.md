@@ -61,3 +61,14 @@ git log
 git push origin HEAD:5-crear-directorio-de-imagenes
 
 ```
+# Cambiar el nombre y el correo de un repo 
+```
+git config user.name "Bryan Quesada Azofeifa"
+git config user.email "bryanquesa@gmail.com"
+```
+# Cambiar el nombre y el correo de un repo de manera global
+```
+git config --global user.name "Bryan Quesada Azofeifa"
+git config --global user.email "bryanquesa@gmail.com"
+```
+
